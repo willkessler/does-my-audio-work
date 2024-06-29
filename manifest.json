@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Conference Ready Check",
+  "version": "1.0",
+  "permissions": [
+    "tabs",
+    "storage",
+    "*://*.google.com/*",
+    "*://*.zoom.us/*",
+    "*://meet.google.com/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {},
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.google.com/*",
+        "*://*.zoom.us/*",
+        "*://meet.google.com/*"
+      ],
+      "js": ["contentScript.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
